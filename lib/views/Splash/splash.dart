@@ -29,7 +29,6 @@ class _SplashScreenState extends State<SplashScreen> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          //crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Center(
               child: Text(
@@ -37,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 style: TextStyle(
                     fontFamily: "mon",
                     fontSize: 65,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w600,
                     color: Colors.blue),
               ),
             ),
@@ -51,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ),
             Center(
-              child: Image.asset('assets/images/car_pool.jpg'),
+              child: Hero(tag: "login",child: Image.asset('assets/images/car_pool.jpg')),
             )
           ],
         ),

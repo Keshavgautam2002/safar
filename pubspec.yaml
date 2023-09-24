@@ -79,6 +79,7 @@ flutter:
     - family: mon
       fonts:
       - asset: assets/fonts/montserrat.ttf
+      - asset: assets/fonts/Montserrat-Medium.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
