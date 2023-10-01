@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:safar_project/Routes/app_pages.dart';
-import 'package:safar_project/controllers/loginController.dart';
+import 'package:safar_project/controllers/Login%20Controllers/loginController.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -69,14 +69,37 @@ class LoginScreen extends StatelessWidget {
                       child: const Text("Login",style: TextStyle(fontSize: 15,fontFamily: "mon",fontWeight: FontWeight.w700,color: Colors.white),),
                     ),
                   ),
-                  const SizedBox(height: 20,),
+                  const SizedBox(height: 25,),
                   const Row(
                     children: [
-                      Expanded(child: Divider()),
-                      Text(" Or "),
-                      Expanded(child: Divider())
+                      Expanded(child: Divider(thickness: 2,)),
+                      Text("  OR  "),
+                      Expanded(child: Divider(thickness: 2))
                     ],
                   ),
+                  const SizedBox(height: 25,),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(7),
+                      color: Colors.grey.shade200
+                    ),
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text("Login With ",style: TextStyle(fontSize: 15,fontFamily: "mon",fontWeight: FontWeight.w700,color: Colors.black),),
+                        const SizedBox(width: 10,),
+                        Image.asset("assets/images/google_icon.png",height: 20,width: 20,)
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 15,),
+                  Center(
+                    child: TextButton(onPressed: () {
+                      Get.toNamed(AppRoute.registerScreen);
+                    }, child: const Text("Don't have account? Sign Up")),
+                  )
 
                 ],
               ),
