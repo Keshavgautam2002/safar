@@ -13,30 +13,30 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->D:\Android Projects\safar\android\app\src\debug\AndroidManifest.xml:6:5-66
-15-->D:\Android Projects\safar\android\app\src\debug\AndroidManifest.xml:6:22-64
+15-->D:\Project\safar\android\app\src\debug\AndroidManifest.xml:6:5-66
+15-->D:\Project\safar\android\app\src\debug\AndroidManifest.xml:6:22-64
 16    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-16-->[:file_picker] D:\Android Projects\safar\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-80
-16-->[:file_picker] D:\Android Projects\safar\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-77
+16-->[:file_picker] D:\Project\safar\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-80
+16-->[:file_picker] D:\Project\safar\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-77
 17
 18    <queries>
-18-->[:file_picker] D:\Android Projects\safar\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-17:15
+18-->[:file_picker] D:\Project\safar\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-17:15
 19        <intent>
-19-->[:file_picker] D:\Android Projects\safar\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:12:9-16:18
+19-->[:file_picker] D:\Project\safar\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:12:9-16:18
 20            <action android:name="android.intent.action.GET_CONTENT" />
-20-->[:file_picker] D:\Android Projects\safar\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-72
-20-->[:file_picker] D:\Android Projects\safar\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:13:21-69
+20-->[:file_picker] D:\Project\safar\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-72
+20-->[:file_picker] D:\Project\safar\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:13:21-69
 21
 22            <data android:mimeType="*/*" />
-22-->[:file_picker] D:\Android Projects\safar\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-44
-22-->[:file_picker] D:\Android Projects\safar\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:15:19-41
+22-->[:file_picker] D:\Project\safar\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-44
+22-->[:file_picker] D:\Project\safar\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:15:19-41
 23        </intent>
 24    </queries>
 25
 26    <application
 27        android:name="android.app.Application"
 28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-28-->[androidx.core:core:1.6.0] C:\Users\gauta\.gradle\caches\transforms-3\7e9df2ac2213a6bd3cef0f2f27870d79\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
+28-->[androidx.core:core:1.6.0] C:\Users\Hp\.gradle\caches\transforms-3\7e9df2ac2213a6bd3cef0f2f27870d79\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
 29        android:debuggable="true"
 30        android:icon="@mipmap/ic_launcher"
 31        android:label="safar_project" >
@@ -74,17 +74,17 @@
 63            android:value="2" />
 64
 65        <uses-library
-65-->[androidx.window:window:1.0.0-beta04] C:\Users\gauta\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+65-->[androidx.window:window:1.0.0-beta04] C:\Users\Hp\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
 66            android:name="androidx.window.extensions"
-66-->[androidx.window:window:1.0.0-beta04] C:\Users\gauta\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+66-->[androidx.window:window:1.0.0-beta04] C:\Users\Hp\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
 67            android:required="false" />
-67-->[androidx.window:window:1.0.0-beta04] C:\Users\gauta\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+67-->[androidx.window:window:1.0.0-beta04] C:\Users\Hp\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
 68        <uses-library
-68-->[androidx.window:window:1.0.0-beta04] C:\Users\gauta\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+68-->[androidx.window:window:1.0.0-beta04] C:\Users\Hp\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
 69            android:name="androidx.window.sidecar"
-69-->[androidx.window:window:1.0.0-beta04] C:\Users\gauta\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+69-->[androidx.window:window:1.0.0-beta04] C:\Users\Hp\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
 70            android:required="false" />
-70-->[androidx.window:window:1.0.0-beta04] C:\Users\gauta\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+70-->[androidx.window:window:1.0.0-beta04] C:\Users\Hp\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
 71    </application>
 72
 73</manifest>
