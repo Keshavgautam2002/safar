@@ -26,11 +26,35 @@ const blackfont14normal = TextStyle(
     fontWeight: FontWeight.w400,
     color: Colors.black);
 
+const bluefont14normal = TextStyle(
+    fontSize: 14,
+    fontFamily: "mon",
+    fontWeight: FontWeight.w400,
+    color: Colors.blue);
+
+const whitefont14normal = TextStyle(
+    fontSize: 14,
+    fontFamily: "mon",
+    fontWeight: FontWeight.w400,
+    color: Colors.white);
+
 const greyfont14normal = TextStyle(
     fontSize: 14,
     fontFamily: "mon",
     fontWeight: FontWeight.w400,
     color: Colors.grey);
+
+const greenfont14normal = TextStyle(
+    fontSize: 14,
+    fontFamily: "mon",
+    fontWeight: FontWeight.w400,
+    color: Colors.green);
+
+const orangefont14normal = TextStyle(
+    fontSize: 14,
+    fontFamily: "mon",
+    fontWeight: FontWeight.w400,
+    color: Colors.orange);
 
 const greyfont12normal = TextStyle(
     fontSize: 12,

@@ -4,6 +4,21 @@ const sizedboxh10w0 = SizedBox(
   height: 10,
   width: 0,
 );
+
+const sizedboxh0w15 = SizedBox(
+  height: 0,
+  width: 15,
+);
+const sizedboxh0w5 = SizedBox(
+  height: 0,
+  width: 5,
+);
+
+const sizedboxh7w0 = SizedBox(
+  height: 7,
+  width: 0,
+);
+
 const sizedboxh15w0 = SizedBox(
   height: 15,
   width: 0,
