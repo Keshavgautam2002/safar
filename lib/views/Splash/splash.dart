@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(
-      Duration(
+      const Duration(
         seconds: 3,
       ),
       () => Get.offAndToNamed(AppRoute.login),
@@ -50,7 +50,9 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ),
             Center(
-              child: Hero(tag: "login",child: Image.asset('assets/images/car_pool.jpg')),
+              child: Hero(
+                  tag: "login",
+                  child: Image.asset('assets/images/car_pool.jpg')),
             )
           ],
         ),
