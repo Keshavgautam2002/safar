@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:safar_project/controllers/Dashboard%20Controller/dashboardController.dart';
 import 'package:safar_project/controllers/Login%20Controllers/loginController.dart';
 import 'package:safar_project/views/Login/login.dart';
-import 'package:safar_project/views/Login/register.dart';
+import 'package:safar_project/views/Register_screens/RegisterScreen.dart';
 import 'package:safar_project/views/Ride_screens/bookRideScreen.dart';
 import 'package:safar_project/views/Userdashboard/dashboardScreen.dart';
 import 'package:safar_project/controllers/Login Controllers/registerController.dart';

@@ -1,4 +1,4 @@
-#Sat Dec 02 18:54:53 IST 2023
+#Sat Dec 02 23:20:26 IST 2023
 base.0=D\:\\Project\\safar\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

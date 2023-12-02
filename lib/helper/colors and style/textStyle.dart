@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:safar_project/helper/colors%20and%20style/colors.dart';
 
 const whitesemibold = TextStyle(
     fontSize: 15,
@@ -29,6 +30,12 @@ const blackfont14normal = TextStyle(
     fontFamily: "mon",
     fontWeight: FontWeight.w400,
     color: Colors.black);
+
+const redfont14normal = TextStyle(
+    fontSize: 14,
+    fontFamily: "mon",
+    fontWeight: FontWeight.w400,
+    color: redShadeColor);
 
 const bluefont14normal = TextStyle(
     fontSize: 14,
