@@ -1,8 +1,8 @@
 import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:safar_project/helper/sizedBox.dart';
-import 'package:safar_project/helper/textStyle.dart';
+import 'package:safar_project/helper/colors%20and%20style/sizedBox.dart';
+import 'package:safar_project/helper/colors%20and%20style/textStyle.dart';
 
 class BookRide extends StatelessWidget {
   const BookRide({super.key});

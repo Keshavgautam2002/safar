@@ -1,10 +1,10 @@
 import 'package:bootstrap_icons/bootstrap_icons.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:safar_project/Routes/app_pages.dart';
-import 'package:safar_project/helper/sizedBox.dart';
-import 'package:safar_project/helper/textStyle.dart';
+import 'package:safar_project/helper/colors%20and%20style/colors.dart';
+import 'package:safar_project/helper/colors%20and%20style/sizedBox.dart';
+import 'package:safar_project/helper/colors%20and%20style/textStyle.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -12,27 +12,19 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        title: const Text(
+          "Safar",
+          style: blacksemibold,
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(5.0),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    CupertinoIcons.leaf_arrow_circlepath,
-                    size: 30,
-                  ),
-                  sizedboxh0w10,
-                  Text(
-                    "Share a ride, Save the earth",
-                    style: greensemibold,
-                  ),
-                ],
-              ),
-              sizedboxh10w0,
               Row(
                 children: [
                   Expanded(
