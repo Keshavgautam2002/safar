@@ -16,8 +16,17 @@ class DashboardScreen extends StatelessWidget {
         elevation: 0,
         title: const Text(
           "Safar",
-          style: blacksemibold,
+          style: yellowfont20semibold,
         ),
+        backgroundColor: blueColor,
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.person,
+                color: yellowShade,
+              ))
+        ],
       ),
       body: SafeArea(
         child: SingleChildScrollView(

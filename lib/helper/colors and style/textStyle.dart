@@ -25,6 +25,12 @@ const blacksemibold = TextStyle(
     fontWeight: FontWeight.w700,
     color: Colors.black);
 
+const yellowsemiboldfont15 = TextStyle(
+    fontSize: 15,
+    fontFamily: "mon",
+    fontWeight: FontWeight.w700,
+    color: yellowShade);
+
 const blackfont14normal = TextStyle(
     fontSize: 14,
     fontFamily: "mon",
@@ -96,3 +102,9 @@ const blackfont20semibold = TextStyle(
     fontFamily: "mon",
     fontWeight: FontWeight.w700,
     color: Colors.black);
+
+const yellowfont20semibold = TextStyle(
+    fontSize: 20,
+    fontFamily: "mon",
+    fontWeight: FontWeight.w700,
+    color: yellowShade);
