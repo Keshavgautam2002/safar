@@ -108,3 +108,9 @@ const yellowfont20semibold = TextStyle(
     fontFamily: "mon",
     fontWeight: FontWeight.w700,
     color: yellowShade);
+
+const whitefont20semibold = TextStyle(
+    fontSize: 20,
+    fontFamily: "mon",
+    fontWeight: FontWeight.w700,
+    color: Colors.white);

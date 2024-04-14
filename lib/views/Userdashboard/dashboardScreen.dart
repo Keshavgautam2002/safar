@@ -1,9 +1,7 @@
-import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:safar_project/Routes/app_pages.dart';
 import 'package:safar_project/helper/colors%20and%20style/colors.dart';
-import 'package:safar_project/helper/colors%20and%20style/sizedBox.dart';
 import 'package:safar_project/helper/colors%20and%20style/textStyle.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -12,11 +10,12 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
         title: const Text(
           "Safar",
-          style: yellowfont20semibold,
+          style: whitefont20semibold,
         ),
         backgroundColor: blueColor,
         actions: [
@@ -24,125 +23,135 @@ class DashboardScreen extends StatelessWidget {
               onPressed: () {},
               icon: const Icon(
                 Icons.person,
-                color: yellowShade,
+                color: Colors.white,
               ))
         ],
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(5.0),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Row(
-                children: [
-                  Expanded(
-                      child: InkWell(
-                    onTap: () {
-                      Get.offAndToNamed(AppRoute.bookRide);
-                    },
-                    child: Container(
-                      margin: const EdgeInsets.all(5),
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(7),
-                        color: Colors.grey.shade200,
-                      ),
-                      padding: const EdgeInsets.symmetric(vertical: 25),
-                      child: const Column(
-                        children: [
-                          Icon(
-                            BootstrapIcons.car_front_fill,
-                            color: Colors.green,
-                          ),
-                          sizedboxh10w0,
-                          Text(
-                            "Give a ride",
-                            style: blackfont14normal,
-                          )
-                        ],
-                      ),
-                    ),
-                  )),
-                  Expanded(
-                      child: Container(
-                    margin: const EdgeInsets.all(5),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(7),
-                      color: Colors.grey.shade200,
-                    ),
-                    padding: const EdgeInsets.symmetric(vertical: 25),
-                    child: const Column(
-                      children: [
-                        Icon(
-                          BootstrapIcons.person_raised_hand,
-                          color: Colors.blue,
-                        ),
-                        sizedboxh10w0,
-                        Text(
-                          "Take a ride",
-                          style: blackfont14normal,
-                        )
-                      ],
-                    ),
-                  ))
-                ],
-              ),
-              sizedboxh10w0,
-              const Text(
-                "  Your Recent Rides",
-                style: blackfont14normal,
-              ),
-              const Divider(
-                endIndent: 5,
-                indent: 5,
-                color: Colors.grey,
-              ),
-              ListView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: 8,
-                shrinkWrap: true,
-                itemBuilder: (context, index) => recentRideTiles(),
-              )
-            ]),
-          ),
+      body: bodyWidget(),
+      bottomNavigationBar: Container(
+        height: 50,
+        decoration: const BoxDecoration(
+          color: Colors.white,
+        ),
+        padding: const EdgeInsets.only(bottom: 10),
+        alignment: Alignment.center,
+        child: Column(
+          children: [
+            Text("Developed By",
+                style: TextStyle(
+                    color: Colors.red.shade500,
+                    fontWeight: FontWeight.w500,
+                    fontFamily: "mon",
+                    fontSize: 9)),
+            const Text("Safar & Team",
+                style: TextStyle(
+                    color: blueColor,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "mon",
+                    fontSize: 11)),
+          ],
         ),
       ),
     );
   }
 
-  Widget recentRideTiles() {
-    return Card(
-      child: ListTile(
-        contentPadding: const EdgeInsets.all(10),
-        minLeadingWidth: 5,
-        leading: Icon(
-          BootstrapIcons.car_front_fill,
-          color: green,
-        ),
-        trailing: const Text(
-          "Earned\n200/-",
-          style: greenfont12normal,
-          textAlign: TextAlign.center,
-        ),
-        subtitle: const Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Jaipur -> Kota",
-              style: greyfont14normal,
+  Widget bodyWidget() {
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          InkWell(
+            onTap: () {
+              Get.toNamed(AppRoute.bookRide);
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(7),
+                  image: const DecorationImage(
+                      image: AssetImage("assets/images/car_background.jpg"),
+                      fit: BoxFit.cover),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey.shade200,
+                        blurRadius: 5,
+                        spreadRadius: 5,
+                        offset: const Offset(4, 4))
+                  ]),
+              alignment: Alignment.centerLeft,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+              margin: const EdgeInsets.all(10),
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    "Book Ride",
+                    style: TextStyle(
+                        fontFamily: "mon",
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16),
+                  ),
+                  Text(
+                    "Book a ride and\nreach your destination.",
+                    style: TextStyle(
+                        fontFamily: "mon",
+                        letterSpacing: 0.1,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.grey,
+                        fontSize: 11),
+                  ),
+                ],
+              ),
             ),
-            Text(
-              "23 Nov 2023 12:45 PM",
-              style: greyfont14normal,
-            )
-          ],
-        ),
-        title: const Text.rich(TextSpan(children: [
-          TextSpan(text: "Shared with: ", style: greyfont12normal),
-          TextSpan(text: "keshav Gautam", style: blackfont14normal)
-        ])),
+          ),
+          InkWell(
+            onTap: () {
+              Get.toNamed(AppRoute.giveRide);
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(7),
+                  image: const DecorationImage(
+                      image: AssetImage("assets/images/car_background.jpg"),
+                      fit: BoxFit.cover),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey.shade200,
+                        blurRadius: 5,
+                        spreadRadius: 5,
+                        offset: const Offset(4, 4))
+                  ]),
+              alignment: Alignment.centerLeft,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+              margin: const EdgeInsets.all(10),
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    "Give Ride",
+                    style: TextStyle(
+                        fontFamily: "mon",
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16),
+                  ),
+                  Text(
+                    "Give a ride and earn\nmoney while riding.",
+                    style: TextStyle(
+                        fontFamily: "mon",
+                        letterSpacing: 0.1,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.grey,
+                        fontSize: 11),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

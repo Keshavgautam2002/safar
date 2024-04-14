@@ -1,11 +1,17 @@
-import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:safar_project/controllers/Ride_screens_controllers/bookRideController.dart';
 import 'package:safar_project/helper/colors%20and%20style/sizedBox.dart';
-import 'package:safar_project/helper/colors%20and%20style/textStyle.dart';
 
 class BookRide extends StatelessWidget {
-  const BookRide({super.key});
+  BookRide({super.key});
+
+  final controller = Get.find<BookRideController>();
 
   @override
   Widget build(BuildContext context) {
@@ -13,178 +19,152 @@ class BookRide extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: bodyWidget(height, width),
-      floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: Colors.blueAccent,
-        onPressed: () {},
-        icon: const Icon(BootstrapIcons.headset),
-        label: const Text(
-          "Help",
-          style: whitefont14normal,
-        ),
-      ),
     );
   }
 
   Widget bodyWidget(double height, double width) {
-    return SafeArea(
-      child: Stack(
-        children: [
-          Container(),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              padding: const EdgeInsets.all(15),
-              margin: const EdgeInsets.symmetric(horizontal: 8),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.grey.shade200,
-                        spreadRadius: 5,
-                        blurRadius: 5)
-                  ]),
-              child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+    return Stack(
+      children: [
+        mapWidget(),
+        destinationDetailsWidget(),
+        locationFetchingWidget(),
+      ],
+    );
+  }
+
+  Widget mapWidget() {
+    return GetBuilder<BookRideController>(builder: (_) {
+      return GoogleMap(
+        mapType: MapType.normal,
+        initialCameraPosition:
+            controller.cameraPosition ?? controller.kGooglePlex,
+        zoomControlsEnabled: false,
+        zoomGesturesEnabled: true,
+        myLocationEnabled: true,
+        myLocationButtonEnabled: false,
+        onLongPress: (latLng) {
+          HapticFeedback.heavyImpact();
+          controller.setMarkerToLocation(latLng);
+        },
+        markers: controller.markerSet,
+        onMapCreated: (GoogleMapController mapController) {
+          controller.mapController = mapController;
+          controller.update();
+        },
+      );
+    });
+  }
+
+  Widget locationFetchingWidget() {
+    return GetBuilder<BookRideController>(builder: (_) {
+      return Visibility(
+        visible: controller.isLocationFetching,
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(7)),
+            padding: const EdgeInsets.all(10),
+            margin: const EdgeInsets.all(15),
+            child: const Text("Fetching Location..."),
+          ),
+        ),
+      );
+    });
+  }
+
+  Widget destinationDetailsWidget() {
+    return GetBuilder<BookRideController>(builder: (_) {
+      return Visibility(
+        visible: controller.isDetailsVisible,
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.shade200,
+                    offset: const Offset(4, 4),
+                    spreadRadius: 5,
+                    blurRadius: 5,
+                  )
+                ]),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+            margin: const EdgeInsets.all(15),
+            width: double.infinity,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Destination Details-",
+                  style: TextStyle(
+                    fontFamily: "mon",
+                    fontSize: 14,
+                    color: Colors.blue,
+                  ),
+                ),
+                const Divider(),
+                const Text(
+                  "Address-",
+                  style: TextStyle(color: Colors.amber),
+                ),
+                Text(controller.locationAddress,
+                    style: const TextStyle(
+                      fontFamily: "mon",
+                      fontSize: 13,
+                      color: Colors.black,
+                    )),
+                sizedboxh7w0,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      "Select Pickup Location",
-                      style: blackfont14normal,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Total Distance-",
+                          style: TextStyle(color: Colors.amber),
+                        ),
+                        Text(
+                            "${(controller.totalDistance / 1000).toPrecision(2)} KM",
+                            style: const TextStyle(
+                              fontFamily: "mon",
+                              fontSize: 13,
+                              color: Colors.blue,
+                            )),
+                      ],
                     ),
-                    sizedboxh7w0,
-                    TextField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: const BorderSide(color: Colors.grey)),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: const BorderSide(color: Colors.grey)),
-                          isDense: true,
-                          hintStyle: greyfont12normal,
-                          hintText: "Choose Pickup Location",
-                          suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(CupertinoIcons.map,
-                                color: Colors.green),
-                          ),
-                          prefixIcon: const Icon(
-                            CupertinoIcons.map_pin_ellipse,
-                            color: Colors.green,
-                          )),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Total Fare-",
+                          style: TextStyle(color: Colors.amber),
+                        ),
+                        Text(
+                            "${((controller.totalDistance / 1000) * 25).toPrecision(2)}/- Rs",
+                            style: const TextStyle(
+                              fontFamily: "mon",
+                              fontSize: 13,
+                              color: Colors.blue,
+                            )),
+                      ],
                     ),
-                    sizedboxh20w0,
-                    const Text(
-                      "Select Drop Location",
-                      style: blackfont14normal,
-                    ),
-                    sizedboxh7w0,
-                    TextField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: const BorderSide(color: Colors.grey)),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: const BorderSide(color: Colors.grey)),
-                          isDense: true,
-                          hintStyle: greyfont12normal,
-                          hintText: "Choose Drop Location",
-                          suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(CupertinoIcons.map,
-                                color: Colors.redAccent),
-                          ),
-                          prefixIcon: const Icon(CupertinoIcons.map_pin_ellipse,
-                              color: Colors.redAccent)),
-                    ),
-                    sizedboxh15w0,
-                    const Text(
-                      "Best Rides for your route",
-                      style: orangefont14normal,
-                    ),
-                    const Divider(
-                      endIndent: 2,
-                      indent: 2,
-                      color: Colors.grey,
-                    ),
-                    SizedBox(
-                      height: height * 0.26,
-                      child: rideListWidget(),
-                    )
-                  ]),
+                  ],
+                ),
+                sizedboxh7w0,
+                Align(
+                    alignment: Alignment.centerRight,
+                    child: ElevatedButton(
+                        onPressed: () {}, child: const Text("Book Ride")))
+              ],
             ),
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget rideListWidget() {
-    return ListView.builder(
-      shrinkWrap: true,
-      scrollDirection: Axis.horizontal,
-      itemCount: 6,
-      itemBuilder: (context, index) => rideTileWidget(index),
-    );
-  }
-
-  Widget rideTileWidget(int index) {
-    return Card(
-        child: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              CircleAvatar(
-                radius: 25,
-                backgroundColor: Colors.blueAccent,
-                child: Text(index.toString()),
-              ),
-              sizedboxh0w15,
-              const Icon(
-                BootstrapIcons.car_front_fill,
-                color: Colors.grey,
-              ),
-              sizedboxh0w5,
-              const Text(
-                "240",
-                style: greyfont12normal,
-              )
-            ],
           ),
-          sizedboxh7w0,
-          const Text(
-            "Offered by",
-            style: greyfont12normal,
-          ),
-          const Text(
-            "Keshav Gautam",
-            style: bluefont14normal,
-          ),
-          sizedboxh10w0,
-          const Text(
-            "Route",
-            style: greyfont12normal,
-          ),
-          const Text(
-            "M.I Road to Tonk Fatak",
-            style: blackfont14normal,
-          ),
-          sizedboxh10w0,
-          const Text(
-            "Ride Fare",
-            style: greyfont12normal,
-          ),
-          const Text(
-            "350/-",
-            style: greenfont14normal,
-          ),
-        ],
-      ),
-    ));
+        ),
+      );
+    });
   }
 }
